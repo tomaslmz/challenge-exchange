@@ -3,6 +3,7 @@ package com.tomaslmz.app;
 import java.util.Scanner;
 
 import com.tomaslmz.app.models.Currency;
+import com.tomaslmz.app.models.Exchange;
 
 public class App {
     public static void main( String[] args ) {
@@ -77,6 +78,12 @@ public class App {
       Currency currency = new Currency(options[from], amount);
 
       System.out.println(currency.getCurrency());
+
+      Exchange exchange = new Exchange();
+
+      Currency convertedCurrency = exchange.convert(amount, options[from], options[to]);
+
+      System.out.println(convertedCurrency.getCurrency());
 
       sc.close();
     }
